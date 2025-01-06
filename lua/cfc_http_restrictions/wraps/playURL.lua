@@ -18,16 +18,27 @@ local function wrapPlayURL()
         local isAllowed = options and options.allowed
         local noisy = options and options.noisy
 
+        local status = isAllowed and "allowed" or "blocked"
         local logData = {
             noisy = noisy,
             method = "GET",
             fileLocation = stack[3],
-            urls = { { url = url, status = isAllowed and "allowed" or "blocked" } },
+            urls = { { url = url, status = status } }
         }
 
-        if not isAllowed then
+        local canProxy = CFCHTTP.Proxy:IsHealthy()
+
+        if not isAllowed and not canProxy then
             CFCHTTP.LogRequest( logData )
             if callback then callback( nil, CFCHTTP.BASS_ERROR_BLOCKED_URI, "BASS_ERROR_BLOCKED_URI" ) end
+            return
+        end
+
+        if canProxy then
+            logData.urls[1].status = "proxied"
+            url = CFCHTTP.Proxy:WrapURL( url, { trusted = isAllowed or false, audio = true } )
+            CFCHTTP.LogRequest( logData )
+            _sound_PlayURL( url, flags, callback )
             return
         end
 
