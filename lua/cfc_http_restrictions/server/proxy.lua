@@ -9,8 +9,6 @@ proxy.clients = {}
 
 function proxy:CreateClient( steamID )
     local url = proxyURL:GetString() .. "/clients"
-    print( url )
-    print()
 
     HTTP {
         url = url,

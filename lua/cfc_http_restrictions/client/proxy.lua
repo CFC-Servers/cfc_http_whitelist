@@ -1,4 +1,4 @@
-local enableProxy = CreateConVar( "cfc_http_restrictions_enable_proxy", "0", FCVAR_ARCHIVE, "Enable the HTTP proxy", 0, 1 )
+local enableProxy = CreateConVar( "cfc_http_experimental_enable_proxy", "1", FCVAR_ARCHIVE, "Enable the HTTP proxy", 0, 1 )
 
 local proxy = CFCHTTP.Proxy or {}
 CFCHTTP.Proxy = proxy
