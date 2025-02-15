@@ -17,14 +17,11 @@ local function wrapHTTP()
     HTTP = function( req )
         local options = CFCHTTP.GetOptionsForURL( req.url )
         local isAllowed = options and options.allowed
-        local allowedThroughProxy = options and options.allowedProxy
 
         local noisy = options and options.noisy
 
         local stack = string.Split( debug.traceback(), "\n" )
         local status = isAllowed and "allowed" or "blocked"
-
-        -- TODO should we allow proxied http requests
 
         CFCHTTP.LogRequest( {
             noisy = noisy,

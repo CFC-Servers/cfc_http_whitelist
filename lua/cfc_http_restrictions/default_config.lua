@@ -1,6 +1,8 @@
 AddCSLuaFile()
 
----@alias WhitelistAddressOption { allowed: boolean|nil, noisy: boolean|nil, permanent: boolean|nil, pattern: boolean|nil, _edited: boolean|nil }
+
+
+---@alias WhitelistAddressOption { allowed: boolean|nil, noisy: boolean|nil, permanent: boolean|nil, pattern: boolean|nil, _edited: boolean|nil, proxy: boolean|nil }
 
 ---@class WhitelistConfig
 ---@field version string
@@ -16,9 +18,7 @@ local config = {
     defaultAssetURIOptions = {
         allowed = true,
     },
-    defaultOptions = {
-        allowed = false,
-    },
+    defaultOptions = {},
 
     addresses = {
         -- this is used internally by this addon, removing it could cause issues
@@ -43,17 +43,17 @@ local config = {
         ["github.com"] = { allowed = true },
 
         -- dropbox
-        ["dl.dropboxusercontent.com"] = { allowed = true },
-        ["dl.dropbox.com"] = { allowed = true },
-        ["www.dropbox.com"] = { allowed = true },
+        ["dl.dropboxusercontent.com"] = { allowed = true, proxy = false },
+        ["dl.dropbox.com"] = { allowed = true, proxy = false },
+        ["www.dropbox.com"] = { allowed = true, proxy = false },
 
         -- onedrive
         ["onedrive.live.com"] = { allowed = true },
         ["api.onedrive.com"] = { allowed = true },
 
         -- google drive
-        ["docs.google.com"] = { allowed = true },
-        ["drive.google.com"] = { allowed = true },
+        ["docs.google.com"] = { allowed = true, proxy = false },
+        ["drive.google.com"] = { allowed = true, proxy = false },
         ["*.googleusercontent.com"] = { allowed = true },
 
         -- youtube
@@ -86,7 +86,7 @@ local config = {
         ["i.redd.it"] = { allowed = true },
         ["api.wolframalpha.com"] = { allowed = true },
         ["text-to-speech-demo.ng.bluemix.net"] = { allowed = true },
-        ["translate.google.com"] = { allowed = true },
+        ["translate.google.com"] = { allowed = true, proxy = false },
 
         ["cdn[%w-_]*.discordapp%.com"] = { allowed = true, pattern = true },
         ["images-([%w%-]+)%.discordapp%.net"] = { allowed = true, pattern = true },

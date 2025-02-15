@@ -15,7 +15,13 @@ local function wrapPlayURL()
         local stack = string.Split( debug.traceback(), "\n" )
 
         local options = CFCHTTP.GetOptionsForURL( url )
-        local isAllowed = options and options.allowed
+
+        local isAllowed = options and options.allowed == true
+        local isBlocked = options and options.allowed == false
+
+        -- if proxy is nil always default to proxying
+        local shouldProxy = options and options.proxy ~= false
+
         local noisy = options and options.noisy
 
         local status = isAllowed and "allowed" or "blocked"
@@ -26,9 +32,9 @@ local function wrapPlayURL()
             urls = { { url = url, status = status } }
         }
 
-        local canProxy = CFCHTTP.Proxy:IsHealthy()
+        local canProxy = CFCHTTP.Proxy:IsHealthy() and shouldProxy
 
-        if not isAllowed and not canProxy then
+        if isBlocked or (not isAllowed and not canProxy) then
             CFCHTTP.LogRequest( logData )
             if callback then callback( nil, CFCHTTP.BASS_ERROR_BLOCKED_URI, "BASS_ERROR_BLOCKED_URI" ) end
             return
