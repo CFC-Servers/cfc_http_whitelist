@@ -34,7 +34,7 @@ local config = {
         ["steamcommunity.com"] = { allowed = true },
         ["developer.valvesoftware.com"] = { allowed = true },
         ["*.steamstatic.com"] = { allowed = true },
-        ["images.steamusercontent.com"] = { allowd = true },
+        ["images.steamusercontent.com"] = { allowed = true },
         ["steamuserimages-a.akamaihd.net"] = { allowed = true },
         ["images.akamai.steamusercontent.com"] = { allowed = true },
         ["steamcdn-a.akamaihd.net"] = { allowed = true },
