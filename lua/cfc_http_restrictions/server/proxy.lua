@@ -68,6 +68,7 @@ end )
 
 hook.Add( "PlayerInitialSpawn", "CFCHTTP_ProxyUpdate", function( ply )
     timer.Simple( 15, function()
+        if not IsValid( ply ) then return end
         local steamID = ply:SteamID()
         proxy:CreateClient( steamID )
     end )
