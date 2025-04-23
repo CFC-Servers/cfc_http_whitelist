@@ -33,7 +33,7 @@ local config = {
         ["api.steampowered.com"] = { allowed = true },
         ["steamcommunity.com"] = { allowed = true },
         ["developer.valvesoftware.com"] = { allowed = true },
-        ["*.steamstatic.com"] = { allowed = true },
+        ["*.steamstatic.com"] = { allowed = true, noisy = true },
         ["images.steamusercontent.com"] = { allowed = true },
         ["steamuserimages-a.akamaihd.net"] = { allowed = true },
         ["images.akamai.steamusercontent.com"] = { allowed = true },
