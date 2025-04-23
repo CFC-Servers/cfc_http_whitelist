@@ -9,7 +9,8 @@ local COLORS = {
 
 local shouldLogAllows = CreateConVar( "cfc_http_restrictions_log_allows", "1", FCVAR_ARCHIVE, "Should the HTTP restrictions log allowed HTTP requests?", 0, 1 )
 local shouldLogBlocks = CreateConVar( "cfc_http_restrictions_log_blocks", "1", FCVAR_ARCHIVE, "Should the HTTP restrictions log blocked HTTP requests?", 0, 1 )
-local verboseLogging = CreateConVar( "cfc_http_restrictions_log_verbose", "0", FCVAR_ARCHIVE, "Should the HTTP restrictions log include verbose messages?", 0, 1 )
+local verboseLogging = CreateConVar( "cfc_http_restrictions_log_verbose", "0", FCVAR_ARCHIVE, "Should the HTTP restrictions log include extra information?", 0, 1 )
+local noisyLogging = CreateConVar( "cfc_http_restrictions_log_noisy", "0", FCVAR_ARCHIVE, "Should the HTTP restrictions log include noisy urls?", 0, 1 )
 local errorOnBlocks = CreateConVar( "cfc_http_restrictions_error_on_blocks", "0", FCVAR_ARCHIVE, "Should the HTTP restrictions produce a Lua error on blocked HTTP requests?", 0, 1 )
 
 local statusColors = {
@@ -27,7 +28,7 @@ local statusColors = {
 
 ---@param input CFCHTTPLogRequestInput
 function CFCHTTP.LogRequest( input )
-    if input.noisy and not verboseLogging:GetBool() then return end
+    if input.noisy and not noisyLogging:GetBool() then return end
 
     for _, v in ipairs( input.urls ) do
         if not verboseLogging:GetBool() then
