@@ -54,7 +54,7 @@ function CFCHTTP.LogRequest( input )
         MsgC(
             requestColor, requestStatus,
             COLORS.GREY, ": ",
-            COLORS.YELLOW, string.upper( input.method ),
+            COLORS.YELLOW, string.upper( input.method or "NONE" ),
             COLORS.GREY, " - ",
             COLORS.YELLOW, url
         )
