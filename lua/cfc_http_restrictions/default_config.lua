@@ -62,6 +62,7 @@ local config = {
         ["youtu.be"] = { allowed = true },
 
         ["www.twitch.tv"] = { allowed = true },
+        ["player.twitch.tv"] = { allowed = true },
         ["twitch.tv"] = { allowed = true },
 
         ["raw.githubusercontent.com"] = { allowed = true },
