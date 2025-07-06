@@ -62,9 +62,6 @@ local config = {
         ["youtube.com"] = { allowed = true },
         ["youtu.be"] = { allowed = true },
 
-        -- media player (updated edition)
-        ["gmod-youtube.pages.dev"] = { allowed = true },
-
         ["raw.githubusercontent.com"] = { allowed = true },
         ["gist.githubusercontent.com"] = { allowed = true },
 
