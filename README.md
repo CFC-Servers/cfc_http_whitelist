@@ -36,9 +36,9 @@ The best way to configure this addon is using lua files.
 | name | type | description |
 | ----- | ---- | --------------------------------------------------------------------------------------------------------------------------------- |
 | noisy | bool | mark the domain as noisy, hiding it from logs, this can be used for internal domains that will be called frequently on the client |
-| allowed|bool| Is the domain allowed, if false block the domain, if true allow the domain |
-|permanent|bool|Is the domain permanent, if true the domain can not be removed from the config| 
-|pattern|bool|Should the address be treated as a lua pattern|
+| allowed | bool | Is the domain allowed, if false block the domain, if true allow the domain |
+| permanent | bool | Is the domain permanent, if true the domain can not be removed from the config |
+| pattern | bool | Should the address be treated as a lua pattern |
 
 ## Clientside Convars
 | name | default | description |
@@ -47,11 +47,13 @@ The best way to configure this addon is using lua files.
 | cfc_http_restrictions_log_blocks | 1 | Should log blocked HTTP requests |
 | cfc_http_restrictions_log_verbose | 0 | Should the logs include verbose messages? noisy domains and full urls. |
 | cfc_http_restrictions_error_on_blocks | 0 | Should a non-halting error be thrown when a request is blocked? |
+| cfc_http_restrictions_cl_chat_enabled | 1 | Enable the whitelist for URLs in chat messages? |
 
 ## Serverside Convars
 | name | default | description |
 | ---- | ------- | ----------- |
 | cfc_http_restrictions_sv_enabled | 0 | Enable the whitelist for serverside? |
+| cfc_http_restrictions_sv_chat_enabled | 0 | Enable the whitelist for urls in chat messages? |
 
 # Known Issues
 - Some filetypes will not work with sound.playURL. This is intentional and will likely not be fixed. these filetypes would allow you to bypass the whitelist.

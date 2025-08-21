@@ -34,6 +34,7 @@ local function populatePanel( form )
     form:CheckBox( "Log blocked requests", "cfc_http_restrictions_log_blocks" )
     form:CheckBox( "Log noisy urls", "cfc_http_restrictions_log_noisy" )
     form:CheckBox( "Detailed logging", "cfc_http_restrictions_log_verbose" )
+    form:CheckBox( "Enable chat url filtering clientside", "cfc_http_restrictions_cl_chat_enabled" )
 
     local list = vgui.Create( "DListView" )
     list:Dock( TOP )
