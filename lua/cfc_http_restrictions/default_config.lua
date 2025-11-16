@@ -25,6 +25,7 @@ local config = {
 
         -- Used in https://github.com/CFC-Servers/gm_express
         ["gmod.express"] = { allowed = true, noisy = true, permanent = true },
+        ["gmodexpress.com"] = { allowed = true, noisy = true, permanent = true }, -- Alias using .com domain
         ["stg.gmod.express"] = { allowed = true, noisy = true, permanent = true },
 
         ["google.com"] = { allowed = true, noisy = true },
