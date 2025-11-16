@@ -8,7 +8,7 @@ hook.Add( "OnPlayerChat", "CFC_HTTP_ChatFilter", function( ply, text )
     for _, url in ipairs( urls ) do
         local options = CFCHTTP.GetOptionsForURL( url )
         if options.allowed == false then
-            text = string.gsub( text, url, "BLOCKED URL" )
+            text = string.gsub( text, string.PatternSafe( url ), "BLOCKED URL" )
             foundBlocked = true
         end
     end
