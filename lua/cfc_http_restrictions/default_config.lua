@@ -104,6 +104,9 @@ local config = {
         ["wiki.garrysmod.com"] = { allowed = true },
         ["en.wikipedia.org"] = { allowed = true },
         ["developer.mozilla.org"] = { allowed = true },
+
+        -- spotify
+        ["i.scdn.co"] = { allowed = true },
     }
 }
 
