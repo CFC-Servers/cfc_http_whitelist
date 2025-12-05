@@ -26,6 +26,7 @@ local config = {
 
         -- Used in https://github.com/CFC-Servers/gm_express
         ["gmod.express"] = { allowed = true, noisy = true, permanent = true },
+        ["gmodexpress.com"] = { allowed = true, noisy = true, permanent = true }, -- Alias using .com domain
         ["stg.gmod.express"] = { allowed = true, noisy = true, permanent = true },
 
         ["google.com"] = { allowed = true, noisy = true },
@@ -34,7 +35,9 @@ local config = {
         ["api.steampowered.com"] = { allowed = true },
         ["steamcommunity.com"] = { allowed = true },
         ["developer.valvesoftware.com"] = { allowed = true },
-        ["*.steamstatic.com"] = { allowed = true },
+
+        ["*.steamstatic.com"] = { allowed = true, noisy = true },
+
         ["images.steamusercontent.com"] = { allowed = true },
         ["steamuserimages-a.akamaihd.net"] = { allowed = true },
         ["images.akamai.steamusercontent.com"] = { allowed = true },
@@ -61,6 +64,10 @@ local config = {
         ["www.youtube.com"] = { allowed = true },
         ["youtube.com"] = { allowed = true },
         ["youtu.be"] = { allowed = true },
+
+        ["www.twitch.tv"] = { allowed = true },
+        ["player.twitch.tv"] = { allowed = true },
+        ["twitch.tv"] = { allowed = true },
 
         ["raw.githubusercontent.com"] = { allowed = true },
         ["gist.githubusercontent.com"] = { allowed = true },
@@ -100,6 +107,9 @@ local config = {
         ["wiki.garrysmod.com"] = { allowed = true },
         ["en.wikipedia.org"] = { allowed = true },
         ["developer.mozilla.org"] = { allowed = true },
+
+        -- spotify
+        ["i.scdn.co"] = { allowed = true },
     }
 }
 
