@@ -10,4 +10,10 @@ local config = {
     }
 }
 
+
+if CLIENT then
+    hook.Add( "CanAccessUrl", "StarfallEx", function( url )
+        return true
+    end )
+end
 return config
