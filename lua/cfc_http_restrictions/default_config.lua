@@ -57,6 +57,9 @@ local config = {
         ["drive.google.com"] = { allowed = true },
         ["*.googleusercontent.com"] = { allowed = true },
 
+        -- catbox
+        ["files.catbox.moe"] = { allowed = true },
+
         -- youtube
         ["www.youtube.com"] = { allowed = true },
         ["youtube.com"] = { allowed = true },
