@@ -1,7 +1,6 @@
 AddCSLuaFile()
 
-
-do
+if SERVER then
     local expectedHash = "0cd6bc47b235a6c98af53c41e575f06fbb00a1bd399f49ddcfd15f139f9a4def"
 
     -- file.Read is not available yet
