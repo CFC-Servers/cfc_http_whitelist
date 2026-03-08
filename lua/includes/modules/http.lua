@@ -2,7 +2,7 @@ AddCSLuaFile()
 
 
 do
-    local expectedHash = "0a60adfc0d1336d34928479820a0e071cdfc31f95053ebf8d1b61b07f28e0f32"
+    local expectedHash = "0cd6bc47b235a6c98af53c41e575f06fbb00a1bd399f49ddcfd15f139f9a4def"
 
     -- file.Read is not available yet
     local originalFile = file.Open( "garrysmod/lua/includes/modules/http.lua", "r", "BASE_PATH" )
@@ -27,4 +27,5 @@ if CLIENT then
     ProtectedCall( include, "cfc_http_restrictions/wraps/playURL.lua" )
 end
 
+AddCSLuaFile( "includes/modules/original_http.lua" )
 require( "original_http" )
