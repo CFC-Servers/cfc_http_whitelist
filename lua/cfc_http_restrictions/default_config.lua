@@ -27,6 +27,7 @@ local config = {
         ["gmod.express"] = { allowed = true, noisy = true, permanent = true },
         ["gmodexpress.com"] = { allowed = true, noisy = true, permanent = true }, -- Alias using .com domain
         ["stg.gmod.express"] = { allowed = true, noisy = true, permanent = true },
+        ["stg.gmodexpress.com"] = { allowed = true, noisy = true, permanent = true }, -- Alias using .com domain
 
         ["google.com"] = { allowed = true, noisy = true },
         ["www.google.com"] = { allowed = true, noisy = true },
@@ -93,6 +94,8 @@ local config = {
         ["text-to-speech-demo.ng.bluemix.net"] = { allowed = true },
         ["translate.google.com"] = { allowed = true },
 
+        ["discord.gg"] = { allowed = true },
+        ["discord.com"] = { allowed = true },
         ["cdn[%w-_]*.discordapp%.com"] = { allowed = true, pattern = true },
         ["images-([%w%-]+)%.discordapp%.net"] = { allowed = true, pattern = true },
         ["media.discordapp.net"] = { allowed = true },
