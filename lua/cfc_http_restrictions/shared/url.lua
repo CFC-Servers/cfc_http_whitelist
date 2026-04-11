@@ -76,5 +76,5 @@ function CFCHTTP.GetAddress( url )
 end
 
 function CFCHTTP.IsAssetURI( url )
-    return string.StartWith( url, "asset://" )
+    return string.StartsWith( url, "asset://" )
 end

@@ -64,6 +64,18 @@ function CFCHTTP.mergeConfigs( old, new )
         if new.wrapHTMLPanels ~= nil then old.wrapHTMLPanels = new.wrapHTMLPanels end
         if new.defaultOptions ~= nil then old.defaultOptions = new.defaultOptions end
         if new.defaultAssetURIOptions ~= nil then old.defaultAssetURIOptions = new.defaultAssetURIOptions end
+        if new.assetURIProtocols ~= nil then
+            local oldProtocol = {}
+            for _, protocol in pairs( old.assetURIProtocols ) do
+                oldProtocol[protocol] = true
+            end
+
+            for _, protocol in pairs( new.assetURIProtocols ) do
+                if not oldProtocol[protocol] then
+                    table.insert( old.assetURIProtocols, protocol )
+                end
+            end
+        end
 
         for domain, options in pairs( new.addresses ) do
             local currentOptions = old.addresses[domain]

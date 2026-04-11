@@ -5,6 +5,9 @@ AddCSLuaFile()
 
 local config = {
     version = "1",
+    asetURIProtocols = {
+        "sf",
+    },
     addresses = {
         ["thegrb93.github.io"] = { allowed = true },
     }
