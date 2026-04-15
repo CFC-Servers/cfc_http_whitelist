@@ -77,9 +77,11 @@ end
 
 function CFCHTTP.IsAssetURI( url )
     local assetURIProtocols = CFCHTTP.config.assetURIProtocols
+
     for _, protocol in pairs( assetURIProtocols ) do
         if string.StartsWith( url, protocol .. "://" ) then
             return true
         end
     end
+    return false
 end
