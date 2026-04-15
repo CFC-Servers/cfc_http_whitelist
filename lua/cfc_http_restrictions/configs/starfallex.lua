@@ -5,7 +5,7 @@ AddCSLuaFile()
 
 local config = {
     version = "1",
-    asetURIProtocols = {
+    assetURIProtocols = {
         "sf",
     },
     addresses = {
