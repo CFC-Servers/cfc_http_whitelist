@@ -7,11 +7,16 @@ AddCSLuaFile()
 ---@field wrapHTMLPanels boolean|nil
 ---@field defaultAssetURIOptions WhitelistAddressOption
 ---@field defaultOptions WhitelistAddressOption
+---@field assetURIProtocols string[]
 ---@field addresses table<string, WhitelistAddressOption>
 local config = {
     version = "1", -- this field allows backwards compatibility if the config structure is ever updated
 
     wrapHTMLPanels = false,
+
+    assetURIProtocols = {
+        "asset"
+    },
 
     defaultAssetURIOptions = {
         allowed = true

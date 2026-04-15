@@ -5,8 +5,12 @@ AddCSLuaFile()
 
 local config = {
     version = "1",
+    assetURIProtocols = {
+        "sf",
+    },
     addresses = {
         ["thegrb93.github.io"] = { allowed = true },
+        ["cdnjs.cloudflare.com"] = { allowed = true },
     }
 }
 
