@@ -10,6 +10,7 @@ local config = {
     },
     addresses = {
         ["thegrb93.github.io"] = { allowed = true },
+        ["cdnjs.cloudflare.com"] = { allowed = true },
     }
 }
 
