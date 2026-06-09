@@ -38,6 +38,7 @@ local config = {
         ["www.google.com"] = { allowed = true, noisy = true },
 
         ["api.steampowered.com"] = { allowed = true },
+        ["store.steampowered.com"] = { allowed = true },
         ["steamcommunity.com"] = { allowed = true },
         ["developer.valvesoftware.com"] = { allowed = true },
         ["*.steamstatic.com"] = { allowed = true, noisy = true },
