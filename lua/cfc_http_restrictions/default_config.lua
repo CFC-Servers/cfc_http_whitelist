@@ -80,6 +80,10 @@ local config = {
 
         ["bitbucket.org"] = { allowed = true },
 
+        -- imgbb
+        ["i.ibb.co"] = { allowed = true },
+        ["api.imgbb.com"] = { allowed = true },
+
         ["i.imgur.com"] = { allowed = true },
 
         ["pastebin.com"] = { allowed = true },
