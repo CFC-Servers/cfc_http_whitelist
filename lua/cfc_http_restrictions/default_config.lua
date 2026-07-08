@@ -81,6 +81,7 @@ local config = {
         ["bitbucket.org"] = { allowed = true },
 
         ["i.imgur.com"] = { allowed = true },
+        ["imgur.com"] = { allowed = true },
 
         ["pastebin.com"] = { allowed = true },
 
