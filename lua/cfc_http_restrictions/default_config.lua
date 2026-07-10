@@ -84,6 +84,12 @@ local config = {
         ["i.ibb.co"] = { allowed = true },
         ["api.imgbb.com"] = { allowed = true },
 
+        -- catbox
+        ["files.catbox.moe"] = { allowed = true },
+        ["catbox.moe"] = { allowed = true },
+        ["litter.catbox.moe:"] = { allowed = true },
+        ["litterbox.catbox.moe"] = { allowed = true },
+
         ["i.imgur.com"] = { allowed = true },
         ["imgur.com"] = { allowed = true },
 
