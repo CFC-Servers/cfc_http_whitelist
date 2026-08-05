@@ -105,6 +105,22 @@ local config = {
         ["facepunch.com"] = { allowed = true },
         ["*.facepunch.com"] = { allowed = true },
 
+        -- internet radios
+        -- internet-radio.com
+        ["us1.internet-radio.com"] = { allowed = true },
+        ["us2.internet-radio.com"] = { allowed = true },
+        ["us3.internet-radio.com"] = { allowed = true },
+        ["us4.internet-radio.com"] = { allowed = true },
+        ["uk1.internet-radio.com"] = { allowed = true },
+        ["uk2.internet-radio.com"] = { allowed = true },
+        ["uk3.internet-radio.com"] = { allowed = true },
+        ["uk4.internet-radio.com"] = { allowed = true },
+        ["uk5.internet-radio.com"] = { allowed = true },
+        ["uk6.internet-radio.com"] = { allowed = true },
+        ["uk7.internet-radio.com"] = { allowed = true },
+        -- radio.dinosite.net
+        ["radio.dinosite.net"] = { allowed = true },
+
         ["i.redditmedia.com"] = { allowed = true },
         ["i.redd.it"] = { allowed = true },
         ["api.wolframalpha.com"] = { allowed = true },
