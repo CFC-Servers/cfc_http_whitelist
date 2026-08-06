@@ -5,7 +5,7 @@ AddCSLuaFile()
 local config = {
     version = "1",
     addresses = {
-        ["samuelmaddock.github.io"] = { allowed = true },
+        ["mp.physcannon.top"] = { allowed = true },
     }
 }
 
