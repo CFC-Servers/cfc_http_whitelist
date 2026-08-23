@@ -6,6 +6,7 @@ local config = {
     version = "1",
     addresses = {
         ["mp.physcannon.top"] = { allowed = true },
+        ["mp.purrcoding.com"] = {allowed=true},
     }
 }
 
