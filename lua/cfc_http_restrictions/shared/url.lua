@@ -76,5 +76,12 @@ function CFCHTTP.GetAddress( url )
 end
 
 function CFCHTTP.IsAssetURI( url )
-    return string.StartWith( url, "asset://" )
+    local assetURIProtocols = CFCHTTP.config.assetURIProtocols
+
+    for _, protocol in pairs( assetURIProtocols ) do
+        if string.StartsWith( url, protocol .. "://" ) then
+            return true
+        end
+    end
+    return false
 end

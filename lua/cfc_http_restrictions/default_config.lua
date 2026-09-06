@@ -9,11 +9,16 @@ AddCSLuaFile()
 ---@field wrapHTMLPanels boolean|nil
 ---@field defaultAssetURIOptions WhitelistAddressOption
 ---@field defaultOptions WhitelistAddressOption
+---@field assetURIProtocols string[]
 ---@field addresses table<string, WhitelistAddressOption>
 local config = {
     version = "1", -- this field allows backwards compatibility if the config structure is ever updated
 
     wrapHTMLPanels = false,
+
+    assetURIProtocols = {
+        "asset"
+    },
 
     defaultAssetURIOptions = {
         allowed = true,
@@ -28,11 +33,13 @@ local config = {
         ["gmod.express"] = { allowed = true, noisy = true, permanent = true },
         ["gmodexpress.com"] = { allowed = true, noisy = true, permanent = true }, -- Alias using .com domain
         ["stg.gmod.express"] = { allowed = true, noisy = true, permanent = true },
+        ["stg.gmodexpress.com"] = { allowed = true, noisy = true, permanent = true }, -- Alias using .com domain
 
         ["google.com"] = { allowed = true, noisy = true },
         ["www.google.com"] = { allowed = true, noisy = true },
 
         ["api.steampowered.com"] = { allowed = true },
+        ["store.steampowered.com"] = { allowed = true },
         ["steamcommunity.com"] = { allowed = true },
         ["developer.valvesoftware.com"] = { allowed = true },
 
@@ -76,7 +83,18 @@ local config = {
 
         ["bitbucket.org"] = { allowed = true },
 
+        -- imgbb
+        ["i.ibb.co"] = { allowed = true },
+        ["api.imgbb.com"] = { allowed = true },
+
+        -- catbox
+        ["files.catbox.moe"] = { allowed = true },
+        ["catbox.moe"] = { allowed = true },
+        ["litter.catbox.moe"] = { allowed = true },
+        ["litterbox.catbox.moe"] = { allowed = true },
+
         ["i.imgur.com"] = { allowed = true },
+        ["imgur.com"] = { allowed = true },
 
         ["pastebin.com"] = { allowed = true },
 
@@ -96,6 +114,8 @@ local config = {
         ["text-to-speech-demo.ng.bluemix.net"] = { allowed = true },
         ["translate.google.com"] = { allowed = true, proxy = false },
 
+        ["discord.gg"] = { allowed = true },
+        ["discord.com"] = { allowed = true },
         ["cdn[%w-_]*.discordapp%.com"] = { allowed = true, pattern = true },
         ["images-([%w%-]+)%.discordapp%.net"] = { allowed = true, pattern = true },
         ["media.discordapp.net"] = { allowed = true },
