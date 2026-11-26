@@ -32,8 +32,11 @@ function CFCHTTP.ParseURL( url )
     local protocol, authority, remainder = string.match( url, CFCHTTP.URLPattern )
     if not protocol then return end
 
-    -- Userinfo (user:pass@host) lets an allowed host be placed before the real host
-    if string.find( authority, "@", 1, true ) then return end
+    -- Userinfo (user:pass@host) lets an allowed host be placed before the real host.
+    -- Browsers end the authority at "\" but Steam's HTTP does not ("https://google.com\@evil.com" goes to evil.com),
+    -- so look for "@" up to the first / ? or # regardless of backslashes.
+    local rawAuthority = string.match( authority .. remainder, "^[^/%?#]*" )
+    if string.find( rawAuthority, "@", 1, true ) then return end
 
     local host, port = string.match( authority, "^([^:]*):?(.*)$" )
     if host == "" then return end
