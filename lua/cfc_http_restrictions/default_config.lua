@@ -98,12 +98,8 @@ local config = {
 
         ["pastebin.com"] = { allowed = true },
 
-        ["paste.ee"] = { allowed = true },
-
         ["hastebin.com"] = { allowed = true },
         ["hastebin.nl"] = { allowed = true },
-
-        ["puu.sh"] = { allowed = true },
 
         ["facepunch.com"] = { allowed = true },
         ["*.facepunch.com"] = { allowed = true },
@@ -111,7 +107,6 @@ local config = {
         ["i.redditmedia.com"] = { allowed = true },
         ["i.redd.it"] = { allowed = true },
         ["api.wolframalpha.com"] = { allowed = true },
-        ["text-to-speech-demo.ng.bluemix.net"] = { allowed = true },
         ["translate.google.com"] = { allowed = true, proxy = false },
 
         ["discord.gg"] = { allowed = true },
@@ -119,12 +114,9 @@ local config = {
         ["cdn[%w-_]*.discordapp%.com"] = { allowed = true, pattern = true },
         ["images-([%w%-]+)%.discordapp%.net"] = { allowed = true, pattern = true },
         ["media.discordapp.net"] = { allowed = true },
-        ["i([%w-_]+)%.tinypic%.com"] = { allowed = true, pattern = true },
 
-        ["(%w+)%.keybase.pub"] = { allowed = true, pattern = true },
         ["tts.cyzon.us"] = { allowed = true },
 
-        ["wiki.garrysmod.com"] = { allowed = true },
         ["en.wikipedia.org"] = { allowed = true },
         ["developer.mozilla.org"] = { allowed = true },
 
