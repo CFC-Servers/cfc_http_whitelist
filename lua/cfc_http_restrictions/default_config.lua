@@ -113,12 +113,11 @@ local config = {
 
         ["discord.gg"] = { allowed = true },
         ["discord.com"] = { allowed = true },
-        ["cdn[%w-_]*.discordapp%.com"] = { allowed = true, pattern = true },
-        ["images-([%w%-]+)%.discordapp%.net"] = { allowed = true, pattern = true },
+        ["cdn[%w%-_]*%.discordapp%.com"] = { allowed = true, pattern = true },
+        ["images%-[%w%-]+%.discordapp%.net"] = { allowed = true, pattern = true },
         ["media.discordapp.net"] = { allowed = true },
-        ["i([%w-_]+)%.tinypic%.com"] = { allowed = true, pattern = true },
 
-        ["(%w+)%.keybase.pub"] = { allowed = true, pattern = true },
+        ["[%w%-]+%.keybase%.pub"] = { allowed = true, pattern = true },
         ["tts.cyzon.us"] = { allowed = true },
 
         ["wiki.garrysmod.com"] = { allowed = true },

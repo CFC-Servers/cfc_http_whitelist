@@ -1,16 +1,17 @@
 CFCHTTP = CFCHTTP or {}
 
 -- escapes all lua pattern characters and allows the use of * as a wildcard
+-- the wildcard only matches hostname characters, never URL delimiters such as ? # \ @
 local escapedCache = {}
 local function escapeAddr( addr )
     if escapedCache[addr] then return escapedCache[addr] end
 
-    local split = string.Split( addr, "*" )
+    local split = string.Split( string.lower( addr ), "*" )
     for i = 1, #split do
         split[i] = string.PatternSafe( split[i] )
     end
 
-    escapedCache[addr] = table.concat( split, ".*" )
+    escapedCache[addr] = table.concat( split, CFCHTTP.HostCharClass .. "*" )
     return escapedCache[addr]
 end
 

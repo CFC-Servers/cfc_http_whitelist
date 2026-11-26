@@ -1,27 +1,48 @@
 ---@class URLData
 ---@field protocol string
 ---@field address string
----@field port number
+---@field port number|nil
 ---@field path string
 
 
-CFCHTTP.URLPattern = "(%a+)://([^:/ \t]+):?(%d*)/?.*"
+-- Characters allowed in a hostname: ASCII alphanumerics, '.', '-', '_' and any non-ASCII byte (IDNs)
+CFCHTTP.HostCharClass = "[%w%.%-_\128-\255]"
+
+-- Deprecated, use CFCHTTP.ParseURL
+CFCHTTP.URLPattern = "^(%a[%w%+%.%-]*)://([^/\\%?#]*)(.*)$"
 
 -- Deprecated
 CFCHTTP.URLPatternNoGroups = "%a+://[^:/ \t\"]+:?%d*/?[^\n\" \\]*"
 
-CFCHTTP.URLPatternNoGroupsNoPath = "%a+://[^:/;'%(%) \t\"]+:?%d*"
+-- Matches scheme + full authority (including any userinfo/port) so the whole authority is validated
+CFCHTTP.URLPatternNoGroupsNoPath = "%a+://[^/\\%?#;'%(%)%s\"<>`]+"
 CFCHTTP.URLPatternNoGroupsHasPath = CFCHTTP.URLPatternNoGroupsNoPath .. "/[^\n\" \\]*"
 
 
 ---@param url string
----@return URLData
+---@return URLData|nil
 function CFCHTTP.ParseURL( url )
-    local pattern = CFCHTTP.URLPattern
-    local _, _, protocol, address, port, remainder = string.find( url, pattern )
+    if type( url ) ~= "string" then return end
+
+    -- Browsers strip tabs/newlines anywhere and leading/trailing whitespace/control chars, so do the same
+    url = string.gsub( url, "[\t\r\n]", "" )
+    url = string.match( url, "^[%c ]*(.-)[%c ]*$" )
+
+    -- Anchored: the URL must start with scheme://, otherwise a later URL in the string could be matched
+    local protocol, authority, remainder = string.match( url, CFCHTTP.URLPattern )
+    if not protocol then return end
+
+    -- Userinfo (user:pass@host) lets an allowed host be placed before the real host
+    if string.find( authority, "@", 1, true ) then return end
+
+    local host, port = string.match( authority, "^([^:]*):?(.*)$" )
+    if host == "" then return end
+    if not string.match( port, "^%d*$" ) then return end
+    if string.find( host, "[^%w%.%-_\128-\255]" ) then return end
+
     return {
-        protocol = protocol,
-        address = address,
+        protocol = string.lower( protocol ),
+        address = string.lower( host ),
         port = tonumber( port ),
         path = remainder
     }
@@ -71,6 +92,7 @@ end
 function CFCHTTP.GetAddress( url )
     if not url then return end
     local data = CFCHTTP.ParseURL( url )
+    if not data then return end
 
     return data.address
 end
